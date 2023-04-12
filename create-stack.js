@@ -50,12 +50,9 @@ function createStack(maxSize) {
     const stack = {
         quantity: 0,
         storage: {},
-        maxSize: 10
+        maxSize: maxSize || 10
     };
-    //set maxSize based on parameter
-    if (maxSize !== undefined) {
-        stack.maxSize = maxSize;
-    };
+
     //Methods
     stack.pushToStack = pushToStack;
     stack.popFromStack = popFromStack;
