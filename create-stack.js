@@ -46,11 +46,11 @@ function peek() {
 };
 
 //CREATE STACK FACTORY FUNCTION
-function createStack(maxSize) {
+function createStack(maxSize = 10) {
     const stack = {
         quantity: 0,
         storage: {},
-        maxSize: maxSize || 10
+        maxSize: maxSize
     };
 
     //Methods
