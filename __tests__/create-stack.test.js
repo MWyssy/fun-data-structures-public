@@ -2,13 +2,24 @@ const createStack = require('../create-stack');
 
 describe('createStack tests', () => {
     describe('Object Properties', () => {
-        test('should have a quantity property intially set to 0', () => {
+        test('should have a quantity property intially set to 0, but changes based on the number of items in the storage', () => {
           //Arrange
           const testStack = createStack()
+          const itemToAdd1 = 'Box 1';
+          const itemToAdd2 = 'Box 2';
+          const itemToAdd3 = 'Box 3';
           //Act
           
           //Assert
           expect(testStack.quantity).toBe(0);
+          //Act
+          testStack.push(itemToAdd1, itemToAdd2, itemToAdd3)
+          //Assert
+          expect(testStack.quantity).toBe(3);
+          //Act
+          testStack.pop()
+          //Assert
+          expect(testStack.quantity).toBe(2);
         });
         test('should have a storage property intially set to an empty array', () => {
             //Arrange

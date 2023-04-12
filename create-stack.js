@@ -2,11 +2,14 @@
 function push(...items) {
     items.map((item, index) => {
         if (Object.keys(this.storage).length < this.maxSize) {
-            return this.storage[index + 1] = item
+            this.storage[index + 1] = item
+            this.quantity++;
+            return this
         } else {
             return;
         };
     });
+    
 };
 
 function pop() {
@@ -14,6 +17,7 @@ function pop() {
     if (Object.keys(this.storage).length > 0) {      
     itemRemoved = this.storage[Object.keys(this.storage).length];
     delete this.storage[Object.keys(this.storage).length]
+    this.quantity--;
     return itemRemoved;
     };
 };
