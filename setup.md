@@ -22,4 +22,3 @@ Add the following section to your package.json:
     "test": "jest"
   }
 }
-```
