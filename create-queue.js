@@ -50,17 +50,13 @@ function peek() {
 };
 
 //CREATE QUEUE FACTORY FUNCTION
-function createQueue(maxSize) {
+function createQueue(maxSize = 5) {
     const queue = {
-        maxSize: 5,
+        maxSize: maxSize,
         storage: {},
         front: 0,
         back: 0
     };
-
-    if (maxSize !== undefined) {
-        queue.maxSize = maxSize;
-    }
 
     //METHODS
     queue.enQueue = enQueue;
