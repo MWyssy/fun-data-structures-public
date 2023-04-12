@@ -1,7 +1,7 @@
 //METHODS
 function push(...items) {
     items.map((item, index) => {
-        if (Object.keys(this.storage).length < this.maxSize) {
+        if (this.quantity < this.maxSize) {
             this.storage[index + 1] = item
             this.quantity++;
             return this
@@ -14,21 +14,21 @@ function push(...items) {
 
 function pop() {
     let itemRemoved = "";
-    if (Object.keys(this.storage).length > 0) {      
-    itemRemoved = this.storage[Object.keys(this.storage).length];
-    delete this.storage[Object.keys(this.storage).length]
+    if (this.quantity > 0) {      
+    itemRemoved = this.storage[this.quantity];
+    delete this.storage[this.quantity]
     this.quantity--;
     return itemRemoved;
     };
 };
 
 function isEmpty() {
-    if (Object.keys(this.storage).length === 0) return true;
+    if (this.quantity === 0) return true;
     return false;
 };
 
 function isFull() {
-    if (this.storage.hasOwnProperty(this.maxSize)) return true;
+    if (this.quantity === this.maxSize) return true;
     return false;
 };
 
