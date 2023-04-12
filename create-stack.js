@@ -1,5 +1,5 @@
 //METHODS
-function pushToStack(...items) {
+function push(...items) {
     items.map((item, index) => {
         if (Object.keys(this.storage).length < this.maxSize) {
             return this.storage[index + 1] = item
@@ -9,7 +9,7 @@ function pushToStack(...items) {
     });
 };
 
-function popFromStack() {
+function pop() {
     let itemRemoved = "";
     if (Object.keys(this.storage).length > 0) {      
     itemRemoved = this.storage[Object.keys(this.storage).length];
@@ -47,8 +47,8 @@ function createStack(maxSize = 10) {
     };
 
     //Methods
-    stack.pushToStack = pushToStack;
-    stack.popFromStack = popFromStack;
+    stack.push = push;
+    stack.pop = pop;
     stack.isEmpty = isEmpty;
     stack.isFull = isFull;
     stack.peek = peek;

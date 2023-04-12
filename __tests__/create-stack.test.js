@@ -35,7 +35,7 @@ describe('createStack tests', () => {
             const testStack = createStack()
             const itemToAdd = 'Box 1'
             //Act
-            testStack.pushToStack(itemToAdd);
+            testStack.push(itemToAdd);
             //Assert
             expect(testStack.storage).toEqual({1: itemToAdd});
           });
@@ -49,7 +49,7 @@ describe('createStack tests', () => {
             const itemToAdd5 = 'Box 5';
             const itemToAdd6 = 'Box 6';
             //Act
-            testStack.pushToStack(itemToAdd1, itemToAdd2, itemToAdd3, itemToAdd4, itemToAdd5, itemToAdd6);
+            testStack.push(itemToAdd1, itemToAdd2, itemToAdd3, itemToAdd4, itemToAdd5, itemToAdd6);
             //Assert
             expect(testStack.storage).toEqual({1: itemToAdd1, 2: itemToAdd2, 3: itemToAdd3, 4: itemToAdd4, 5: itemToAdd5});
           });
@@ -61,9 +61,9 @@ describe('createStack tests', () => {
             const itemToAdd3 = 'Box 3';
             const itemToAdd4 = 'Box 4';
             //Act
-            testStack.pushToStack(itemToAdd1, itemToAdd2, itemToAdd3, itemToAdd4);
+            testStack.push(itemToAdd1, itemToAdd2, itemToAdd3, itemToAdd4);
             //Assert
-            expect(testStack.popFromStack()).toEqual(itemToAdd4);
+            expect(testStack.pop()).toEqual(itemToAdd4);
             expect(testStack.storage).toEqual({1: itemToAdd1, 2: itemToAdd2, 3: itemToAdd3});
           });
           test('should have an isEmpty method which returns a boolean. Should return `true` when the stack storage is empty and the current quantity is 0.', () => {
@@ -71,11 +71,11 @@ describe('createStack tests', () => {
             const testStack = createStack()
             const itemToAdd1 = 'Box 1';
             //Act
-            testStack.pushToStack(itemToAdd1);
+            testStack.push(itemToAdd1);
             //Assert
             expect(testStack.isEmpty()).toBe(false);
             //Act
-            testStack.popFromStack();
+            testStack.pop();
             //Assert
             expect(testStack.isEmpty()).toBe(true);
           });
@@ -86,11 +86,11 @@ describe('createStack tests', () => {
             const itemToAdd2 = 'Box 2';
             const itemToAdd3 = 'Box 3';
             //Act
-            testStack.pushToStack(itemToAdd1, itemToAdd2, itemToAdd3);
+            testStack.push(itemToAdd1, itemToAdd2, itemToAdd3);
             //Assert
             expect(testStack.isFull()).toBe(true);
             //Act
-            testStack.popFromStack();
+            testStack.pop();
             //Assert
             expect(testStack.isEmpty()).toBe(false);
           });
@@ -101,11 +101,11 @@ describe('createStack tests', () => {
             const itemToAdd2 = 'Box 2';
             const itemToAdd3 = 'Box 3';
             //Act
-            testStack.pushToStack(itemToAdd1, itemToAdd2, itemToAdd3);
+            testStack.push(itemToAdd1, itemToAdd2, itemToAdd3);
             //Assert
             expect(testStack.peek()).toBe(itemToAdd3);
             //Act
-            testStack.popFromStack();
+            testStack.pop();
             //Assert
             expect(testStack.peek()).toBe(itemToAdd2);
           });
