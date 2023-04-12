@@ -11,16 +11,9 @@ function pushToStack(...items) {
 
 function popFromStack() {
     let itemRemoved = "";
-    let count = 0;
-    if (Object.keys(this.storage).length > 0) {
-        for (let item in this.storage) {
-            if (item > count) {
-                count = item
-            }
-    }
-    itemRemoved = this.storage[count];
-    console.log(this.storage[count])
-    delete this.storage[count]
+    if (Object.keys(this.storage).length > 0) {      
+    itemRemoved = this.storage[Object.keys(this.storage).length];
+    delete this.storage[Object.keys(this.storage).length]
     return itemRemoved;
     };
 };
