@@ -1,41 +1,55 @@
 //METHODS
 function pushToStack(...items) {
-    items.map((item) => {
-        if (this.storage.length < this.maxSize) {
-            return this.storage.push(item)
+    items.map((item, index) => {
+        if (Object.keys(this.storage).length < this.maxSize) {
+            return this.storage[index + 1] = item
         } else {
             return;
         };
     });
-}
+};
 
 function popFromStack() {
-    let itemRemoved = [];
-    if (this.storage.length > 0) {
-        itemRemoved = this.storage.pop()
+    let itemRemoved = "";
+    let count = 0;
+    if (Object.keys(this.storage).length > 0) {
+        for (let item in this.storage) {
+            if (item > count) {
+                count = item
+            }
     }
+    itemRemoved = this.storage[count];
+    console.log(this.storage[count])
+    delete this.storage[count]
     return itemRemoved;
-}
+    };
+};
 
 function isEmpty() {
-    if (this.storage.length === 0) return true;
+    if (Object.keys(this.storage).length === 0) return true;
     return false;
-}
+};
 
 function isFull() {
-    if (this.storage.length === this.maxSize) return true;
+    if (this.storage.hasOwnProperty(this.maxSize)) return true;
     return false;
-}
+};
 
 function peek() {
-    return this.storage[this.storage.length - 1];
-}
+    let count = 0;
+    for (let item in this.storage) {
+        if (item > count) {
+            count = item
+        }
+    }
+    return this.storage[count];
+};
 
 //CREATE STACK FACTORY FUNCTION
 function createStack(maxSize) {
     const stack = {
         quantity: 0,
-        storage: [],
+        storage: {},
         maxSize: 10
     };
     //set maxSize based on parameter

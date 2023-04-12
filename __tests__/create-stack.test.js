@@ -16,7 +16,7 @@ describe('createStack tests', () => {
             //Act
             
             //Assert
-            expect(testStack.storage).toEqual([]);
+            expect(testStack.storage).toEqual({});
           });
           test('should have a maxSize property which can be set as an argument, or has a default value if no argument is passed', () => {
             //Arrange
@@ -37,7 +37,7 @@ describe('createStack tests', () => {
             //Act
             testStack.pushToStack(itemToAdd);
             //Assert
-            expect(testStack.storage).toEqual([itemToAdd]);
+            expect(testStack.storage).toEqual({1: itemToAdd});
           });
           test('should have a push method which adds any number of items to the stack storage, provided it doesn\'t exceed the maxSize', () => {
             //Arrange
@@ -51,7 +51,7 @@ describe('createStack tests', () => {
             //Act
             testStack.pushToStack(itemToAdd1, itemToAdd2, itemToAdd3, itemToAdd4, itemToAdd5, itemToAdd6);
             //Assert
-            expect(testStack.storage).toEqual([itemToAdd1, itemToAdd2, itemToAdd3, itemToAdd4, itemToAdd5]);
+            expect(testStack.storage).toEqual({1: itemToAdd1, 2: itemToAdd2, 3: itemToAdd3, 4: itemToAdd4, 5: itemToAdd5});
           });
           test('should have a pop method which removes the last item from the stack storage, and returns that item, provided the stack is not empty', () => {
             //Arrange
@@ -64,7 +64,7 @@ describe('createStack tests', () => {
             testStack.pushToStack(itemToAdd1, itemToAdd2, itemToAdd3, itemToAdd4);
             //Assert
             expect(testStack.popFromStack()).toEqual(itemToAdd4);
-            expect(testStack.storage).toEqual([itemToAdd1, itemToAdd2, itemToAdd3]);
+            expect(testStack.storage).toEqual({1: itemToAdd1, 2: itemToAdd2, 3: itemToAdd3});
           });
           test('should have an isEmpty method which returns a boolean. Should return `true` when the stack storage is empty and the current quantity is 0.', () => {
             //Arrange
